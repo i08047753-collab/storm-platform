@@ -6,6 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080d1b">
 <title>STORM | منصة العاصفة</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <style>
 :root{--bg:#080d1b;--panel:#111a2e;--line:#26334e;--blue:#55d8ff;--purple:#a78bfa;--text:#f2f6ff;--muted:#a8b5cd}
 *{box-sizing:border-box}
@@ -50,6 +53,7 @@ footer{text-align:center;padding:30px 15px;border-top:1px solid var(--line);colo
 @media(max-width:380px){.grid{grid-template-columns:1fr}.hero h1{font-size:31px}}
 </style>
 </head>
+
 <body>
 <header>
   <div class="logo">ST<span>O</span>RM ✦</div>
@@ -75,6 +79,7 @@ footer{text-align:center;padding:30px 15px;border-top:1px solid var(--line);colo
   <div class="section-title" id="discover">
     <h2>استكشف عوالم STORM</h2><span>معرفتك تبدأ هنا ✦</span>
   </div>
+
   <section class="grid">
     <article class="card"><div class="icon">🔭</div><h3>عالم الفلك</h3><p>النجوم والمجرات والثقوب السوداء وأسرار الكون.</p><a href="#community" onclick="notify('قسم الفلك قيد التطوير.')">استكشف الفلك ←</a></article>
     <article class="card"><div class="icon">⚛️</div><h3>مختبر الفيزياء</h3><p>القوانين والتجارب والأفكار التي تفسر الطبيعة.</p><a href="#community" onclick="notify('مختبر الفيزياء قيد التطوير.')">ادخل المختبر ←</a></article>
@@ -87,6 +92,7 @@ footer{text-align:center;padding:30px 15px;border-top:1px solid var(--line);colo
   <div class="section-title" id="community">
     <h2>نبض المجتمع</h2><span>مساحة للأفكار العلمية</span>
   </div>
+
   <section class="feed">
     <div class="card">
       <h3>💬 مناقشات المجتمع</h3>
@@ -94,6 +100,7 @@ footer{text-align:center;padding:30px 15px;border-top:1px solid var(--line);colo
       <div class="post"><small>الفيزياء · سؤال علمي</small><h3>هل الزمكان قابل للانحناء؟</h3><p>تعرّف على فكرة انحناء الزمكان في النسبية العامة.</p></div>
       <button class="secondary" onclick="notify('سيتم بناء المنتدى الحقيقي وتسجيل الأعضاء لاحقًا.')">المزيد من المناقشات ←</button>
     </div>
+
     <div class="card">
       <h3>🤖 مساعدك العلمي</h3>
       <p>فيزي هو رفيقك في طرح الأسئلة العلمية، فهم المفاهيم، واستكشاف الأفكار الجديدة.</p>
@@ -112,16 +119,30 @@ footer{text-align:center;padding:30px 15px;border-top:1px solid var(--line);colo
   منصة العاصفة — العلم يجمعنا، والفضول يقودنا.<br>
   © STORM · مجتمع علمي وتقني مستقل
 </footer>
+
 <div id="notice" role="status"></div>
+
 <script>
 let noticeTimer;
+
 function notify(message){
-  const box=document.getElementById('notice');
-  box.textContent=message;
-  box.style.display='block';
+  const box = document.getElementById('notice');
+  box.textContent = message;
+  box.style.display = 'block';
   clearTimeout(noticeTimer);
-  noticeTimer=setTimeout(()=>box.style.display='none',3000);
+  noticeTimer = setTimeout(() => box.style.display = 'none', 3000);
 }
 </script>
+
+<script>
+const STORM_SUPABASE_URL = "https://btynstnfzhnatbxxdxxp.supabase.co";
+const STORM_SUPABASE_KEY = "sb_publishable_WFk_bXlCU2LOgWwoJD3w9Q_FwVF3V0v";
+
+const stormDB = window.supabase.createClient(
+  STORM_SUPABASE_URL,
+  STORM_SUPABASE_KEY
+);
+</script>
+
 </body>
 </html>
