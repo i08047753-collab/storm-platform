@@ -142,14 +142,6 @@ const stormDB = window.supabase.createClient(
   STORM_SUPABASE_URL,
   STORM_SUPABASE_KEY
 );
-  stormDB.from('profiles').select('id').limit(1)
-  .then(({ error }) => {
-    if (error) {
-      console.error('STORM connection error:', error.message);
-    } else {
-      console.log('STORM connected successfully!');
-    }
-  });
 </script>
 
 </body>
